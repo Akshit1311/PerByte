@@ -1,13 +1,26 @@
 import create, { SetState } from "zustand";
 
+interface IWorldIdData {
+  merkle_root: string;
+  nullifier_hash: string;
+  proof: string;
+}
 interface IState {
   activeSidebar: string;
   setActiveSidebar: (menu: string) => void;
+  worldIdData: IWorldIdData;
+  setWorldIdData: (data: any) => void;
 }
 
-const useSidebarStore = create((set: SetState<IState>) => ({
+const useAppStore = create((set: SetState<IState>) => ({
   activeSidebar: "myCloud",
   setActiveSidebar: (menu: string) => set(() => ({ activeSidebar: menu })),
+  worldIdData: {
+    merkle_root: "",
+    nullifier_hash: "",
+    proof: "",
+  },
+  setWorldIdData: (data: IWorldIdData) => set(() => ({ worldIdData: data })),
 }));
 
 // function Counter() {
@@ -15,4 +28,4 @@ const useSidebarStore = create((set: SetState<IState>) => ({
 //   return <h1>{count}</h1>
 // }
 
-export default useSidebarStore;
+export default useAppStore;
