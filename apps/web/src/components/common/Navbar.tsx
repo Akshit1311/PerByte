@@ -30,7 +30,12 @@ const Navbar = () => {
         >
           Upload files
         </div>
-        <div className={`cursor-pointer ${inter.className}`}>Deals</div>
+        <div
+          className={`cursor-pointer ${inter.className}`}
+          onClick={() => router.push("/deals")}
+        >
+          Deals
+        </div>
 
         <ConnectButton />
       </div>

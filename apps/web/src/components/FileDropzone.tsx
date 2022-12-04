@@ -3,6 +3,7 @@ import { useDropzone } from "react-dropzone";
 
 import { Orbitron } from "@next/font/google";
 import { storeFiles } from "../filecoin/store";
+import { useRouter } from "next/router";
 
 const orbitron = Orbitron();
 
@@ -41,11 +42,14 @@ const FileDropzone = () => {
       );
 
       setLoading(false);
+      router.push("/files");
     } catch (error) {
       console.log({ error });
       setLoading(false);
     }
   };
+
+  const router = useRouter();
 
   return (
     <div className="w-screen px-40">
