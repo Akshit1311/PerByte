@@ -1,73 +1,21 @@
-# Turborepo starter
+# PerByte
 
-This is an official pnpm starter turborepo.
+A decentralized perpetual file storing and wallet-to-wallet file sharing platform and storage marketplace.
 
-## What's inside?
+<br>
 
-This turborepo uses [pnpm](https://pnpm.io) as a package manager. It includes the following packages/apps:
+## What it is and what it does
 
-### Apps and Packages
+PerByte is a Dapp to store, retrieve and share files with the help of your wallet address and also customize your storage plans accordingly.
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+### Integrations
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+- `Filecoin`: To store files using [web3.storage](https://web3.storage/)
+  [Filecoin general storage Github](https://github.com/Akshit1311/PerByte/tree/main/apps/web/src/filecoin)<br>
+  The project utilizes the FEVM Smart Contracts to publish and retrieve storage deals. This makes perpetual storage of files possible by renewing the deal once the previous deal expires.
+  [Filecoin FVM Github](https://github.com/Akshit1311/PerByte/tree/main/packages/fevm/contracts)
+- `Worldcoin`: To verify proof of personhood
+- `Polygon`: Smart contract deployed to Polygon mumbai testnet [Link to Polyscan](https://polygonscan.com/address/0x85B6F665829932fAC2898bd2d2810ea3375C5f8E). The proof ID received from Worldcoin on successfully verifying the World ID was stored on Polygon so keep track of filesthat each user is storing.
+- `Valist`: To deploy the Dapp
 
-### Utilities
-
-This turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm run build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm run dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-pnpm dlx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your turborepo:
-
-```
-pnpm dlx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Pipelines](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+### [Github link](https://github.com/Akshit1311/PerByte)
