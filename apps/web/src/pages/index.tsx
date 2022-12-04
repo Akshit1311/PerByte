@@ -9,9 +9,13 @@ const inter = Orbitron();
 // Web3
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount, useConnect } from "wagmi";
+import useAppStore from "../zustand";
 
 const Home: NextPage = () => {
   const { isConnected } = useAccount();
+  const worldId_merkle_root = useAppStore(
+    (state) => state.worldIdData.merkle_root
+  );
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
@@ -23,14 +27,22 @@ const Home: NextPage = () => {
       <div className="grid place-items-center bg-white h-screen w-full">
         <div className="flex flex-col justify-center items-center">
           <div
-            className={`text-8xl leading-loose my-2 ${inter.className} bg-gradient-to-br from-[#fa674c] to-[#4a40df] text-transparent bg-clip-text font-extrabold `}
+            className={`text-8xl leading-loose my-2 ${
+              inter.className
+            } bg-gradient-to-br from-[#fa674c] to-[#4a40df] text-transparent bg-clip-text font-extrabold ${
+              worldId_merkle_root && isConnected
+                ? "translate-y-full transition duration-300"
+                : ""
+            }`}
           >
             PerByte
           </div>
           <div className="mb-8">
+            <Worldcoin />
+          </div>
+          <div className="mb-8">
             <ConnectButton />
           </div>
-          <Worldcoin />
         </div>
       </div>
     </div>
